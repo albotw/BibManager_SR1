@@ -4,14 +4,12 @@ if [ ! -f cache ]
 then
     echo "cache inexistant, reconstruction"
     touch cache
-    echo "default.bib" >> cache
+    echo "Linux.bib" >> cache
     echo "BASE" >> cache
 fi
 
-base=`gsed -n '1p' cache`
-mod=`gsed -n '2p' cache`
-echo "base: $base"
-echo "mod: $mod"
+base=`sed -n '1p' cache`
+mod=`sed -n '2p' cache`
 
 function usage()
 {
@@ -34,13 +32,21 @@ function addReference()
     reference=$1
     if [ -f $reference ]
     then 
-        cat $reference >> bases/$base
-        echo "a écrit le contenu de $reference dans $base"
+        refID=`grep -E "@" $reference | cut -d{ -f2 | cut -d, -f1`
+        testDoublon=`grep -E "$refID" cache`
 
-        refID=`grep -E "@" $reference`
-        size=`wc -l $reference | tr -d "[:alpha:]" | tr -d "[:space:]"`
-        echo "ref::$refID::$size::$base" >> cache
-        echo "référence enregistrée dans le cache"
+        if [ $testDoublon = '' ]
+        then
+            size=`wc -l $reference | tr -d "[:alpha:]" | tr -d "[:space:]"`
+            echo "ref-$refID-$size-$base" >> cache
+            echo "référence enregistrée dans le cache"
+
+            cat $reference >> bases/$base
+            echo '\n' >> bases/$base
+            echo "a écrit le contenu de $reference dans $base"
+        else 
+            echo "Erreur, la référence existe déjà."
+        fi
     else
         echo $reference >> $base
         echo "a ajouté la référence dans $base"
@@ -51,19 +57,29 @@ function addReference()
 function removeReference()
 {
     refID=$1
-    refSize=`awk 'BEGIN { fs="::" } $2 ~ ID{ print $3 }' cache ID=$refID`
-    echo $refSize
-}
+    refBase=` grep -E "$refID" cache | awk -F"-" '{print $4}'`
+    refSize=` grep -E "$refID" cache | awk -F"-" '{print $3}'`
+    let "refSize = $refSize + 1"
 
-function detectDoublon()
-{
-    echo "detectDoublon"
+    if [ $base = $refBase ]
+    then
+        refStart=`grep -n "$refID" bases/$base | cut -d: -f1`
+        sed -i "$refStart,$refSize d" bases/$base
+        
+        refCacheIndex=`grep -n "$refID" cache | cut -d: -f1`
+        sed -i "$refCacheIndex d" cache
+
+        echo "référence supprimée de la base."
+    else 
+        echo "Erreur, référence non présente dans la base"
+        exit 1
+    fi
 }
 
 function changeBase()
 {
     newBase=$1
-    gsed -i "1 c\\$newBase" cache
+    sed -i "1 c\\$newBase" cache
 }
 
 function listBases()
@@ -73,9 +89,10 @@ function listBases()
 
 function listReferences()
 {
-    echo "begin"
-    grep -E "@" $base
-    echo "end"
+    grep -E "ref" cache | while read -r ligne 
+    do
+        echo `echo $ligne | cut -d- -f2`
+    done
 }
 
 function findReference()
@@ -90,11 +107,32 @@ function findReference()
 
 function clean()
 {
-    echo "clean()"
+    rm cache
+    touch cache
+    echo $base >> cache
+    echo $mod >> cache
+
+    ls bases | while read base
+    do
+        grep -E "@" bases/$base | while read ref
+        do
+            refID=`echo $ref | cut -d{ -f2 | cut -d, -f1`
+            testDoublon=`grep -E "$refID" cache`
+
+            if [ -z "$testDoublon" ]
+            then
+                refStart=`grep -n "$refID" bases/$base | cut -d: -f1`
+
+                size=`wc -l $ref | tr -d "[:alpha:]" | tr -d "[:space:]"`
+                #echo "ref-$refID-$size-$base" >> cache
+                echo "référence enregistrée dans le cache"
+            fi
+        done
+    done
 }
 
 
-while getopts hbra:c:ld:unf: OPT
+while getopts hbra:c:ld:un OPT
 do
     case $OPT in
         h)
@@ -102,11 +140,11 @@ do
             exit 0
             ;;
         b) 
-            gsed -i "2c\BASE" cache
+            sed -i "2c\BASE" cache
             echo "gestion de la base $base"
             ;;
         r)
-            gsed -i "2c\REF" cache
+            sed -i "2c\REF" cache
             echo "gestion des références de la base $base"
             ;;
         a)
@@ -124,12 +162,6 @@ do
             ;;
         d)
             removeReference $OPTARG
-            ;;
-        f)
-            findReference $OPTARG
-            ;;
-        u)
-            detectDoublon
             ;;
         c)
             changeBase $OPTARG
