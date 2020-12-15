@@ -120,11 +120,10 @@ function clean()
             testDoublon=`grep -E "$refID" cache`
 
             if [ -z "$testDoublon" ]
-            then
-                refStart=`grep -n "$refID" bases/$base | cut -d: -f1`
-
-                size=`wc -l $ref | tr -d "[:alpha:]" | tr -d "[:space:]"`
-                #echo "ref-$refID-$size-$base" >> cache
+            then  
+                completeRef=`grep -Poz "(?s)@(.|\n)+?\}\n" bases/$base`
+                size=`echo $completeRef | wc -l | tr -d "[:alpha:]" | tr -d "[:space:]"`
+                echo "ref-$refID-$size-$base" >> cache
                 echo "référence enregistrée dans le cache"
             fi
         done
