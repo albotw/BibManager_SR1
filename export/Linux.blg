@@ -1,0 +1,213 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: export/Linux.aux
+The style file: alpha.bst
+Database file #1: export/Linux.bib
+Warning--string name "j-sigplan" is undefined
+--line 8 of file export/Linux.bib
+Warning--string name "j-empir-software-eng" is undefined
+--line 51 of file export/Linux.bib
+Warning--string name "j-comp-surv" is undefined
+--line 75 of file export/Linux.bib
+Warning--string name "j-comp-phys-comm" is undefined
+--line 118 of file export/Linux.bib
+Warning--string name "j-tomacs" is undefined
+--line 143 of file export/Linux.bib
+Warning--string name "j-spe" is undefined
+--line 194 of file export/Linux.bib
+Warning--string name "j-j-softw-evol-proc" is undefined
+--line 218 of file export/Linux.bib
+Warning--string name "j-j-syst-softw" is undefined
+--line 242 of file export/Linux.bib
+Warning--string name "j-ieee-spectrum" is undefined
+--line 268 of file export/Linux.bib
+Warning--string name "j-cacm" is undefined
+--line 299 of file export/Linux.bib
+Warning--string name "j-comput-secur" is undefined
+--line 336 of file export/Linux.bib
+Warning--string name "j-comp-surv" is undefined
+--line 361 of file export/Linux.bib
+Warning--string name "j-sigapp" is undefined
+--line 410 of file export/Linux.bib
+Warning--string name "j-int-j-softw-tools-technol-transfer" is undefined
+--line 440 of file export/Linux.bib
+Warning--string name "j-tocs" is undefined
+--line 467 of file export/Linux.bib
+Warning--string name "j-ibm-jrd" is undefined
+--line 517 of file export/Linux.bib
+Warning--string name "j-fut-gen-comp-sys" is undefined
+--line 539 of file export/Linux.bib
+Warning--string name "pub-acm" is undefined
+--line 570 of file export/Linux.bib
+Warning--string name "pub-acm:adr" is undefined
+--line 571 of file export/Linux.bib
+Warning--string name "pub-ieee" is undefined
+--line 596 of file export/Linux.bib
+Warning--string name "pub-ieee:adr" is undefined
+--line 597 of file export/Linux.bib
+Warning--string name "pub-spe" is undefined
+--line 682 of file export/Linux.bib
+Warning--string name "pub-spe:adr" is undefined
+--line 683 of file export/Linux.bib
+Warning--string name "pub-sv" is undefined
+--line 703 of file export/Linux.bib
+Warning--string name "pub-sv:adr" is undefined
+--line 704 of file export/Linux.bib
+Warning--string name "pub-usenix" is undefined
+--line 779 of file export/Linux.bib
+Warning--string name "pub-usenix:adr" is undefined
+--line 780 of file export/Linux.bib
+Warning--string name "pub-usenix" is undefined
+--line 801 of file export/Linux.bib
+Warning--string name "pub-usenix:adr" is undefined
+--line 802 of file export/Linux.bib
+Warning--string name "pub-walnut-creek-cdrom" is undefined
+--line 817 of file export/Linux.bib
+Warning--string name "pub-linux-system-lab" is undefined
+--line 818 of file export/Linux.bib
+Warning--string name "pub-walnut-creek-cdrom:adr" is undefined
+--line 819 of file export/Linux.bib
+Warning--string name "pub-linux-system-lab:adr" is undefined
+--line 820 of file export/Linux.bib
+Warning--string name "pub-acm" is undefined
+--line 907 of file export/Linux.bib
+Warning--string name "pub-ieee" is undefined
+--line 907 of file export/Linux.bib
+Warning--string name "pub-acm:adr" is undefined
+--line 908 of file export/Linux.bib
+Warning--string name "pub-ieee:adr" is undefined
+--line 908 of file export/Linux.bib
+Warning--string name "pub-usenix" is undefined
+--line 928 of file export/Linux.bib
+Warning--string name "pub-usenix:adr" is undefined
+--line 929 of file export/Linux.bib
+Warning--string name "pub-usenix" is undefined
+--line 948 of file export/Linux.bib
+Warning--string name "pub-usenix:adr" is undefined
+--line 949 of file export/Linux.bib
+Warning--string name "pub-acm" is undefined
+--line 968 of file export/Linux.bib
+Warning--string name "pub-ieee" is undefined
+--line 968 of file export/Linux.bib
+Warning--string name "pub-acm:adr" is undefined
+--line 969 of file export/Linux.bib
+Warning--string name "pub-ieee:adr" is undefined
+--line 969 of file export/Linux.bib
+Warning--string name "pub-acm" is undefined
+--line 992 of file export/Linux.bib
+Warning--string name "pub-acm:adr" is undefined
+--line 993 of file export/Linux.bib
+Warning--string name "pub-acm" is undefined
+--line 1022 of file export/Linux.bib
+Warning--string name "pub-ieee" is undefined
+--line 1022 of file export/Linux.bib
+Warning--string name "pub-acm:adr" is undefined
+--line 1023 of file export/Linux.bib
+Warning--string name "pub-ieee:adr" is undefined
+--line 1023 of file export/Linux.bib
+Warning--string name "pub-ieee" is undefined
+--line 1043 of file export/Linux.bib
+Warning--string name "pub-ieee:adr" is undefined
+--line 1044 of file export/Linux.bib
+Warning--string name "pub-acm" is undefined
+--line 1068 of file export/Linux.bib
+Warning--string name "pub-ieee" is undefined
+--line 1068 of file export/Linux.bib
+Warning--string name "pub-acm:adr" is undefined
+--line 1069 of file export/Linux.bib
+Warning--string name "pub-ieee:adr" is undefined
+--line 1069 of file export/Linux.bib
+Warning--string name "pub-acm" is undefined
+--line 1092 of file export/Linux.bib
+Warning--string name "pub-acm:adr" is undefined
+--line 1093 of file export/Linux.bib
+Warning--string name "pub-acm" is undefined
+--line 1120 of file export/Linux.bib
+Warning--string name "pub-acm:adr" is undefined
+--line 1121 of file export/Linux.bib
+Warning--string name "pub-ieee" is undefined
+--line 1147 of file export/Linux.bib
+Warning--string name "pub-ieee:adr" is undefined
+--line 1148 of file export/Linux.bib
+Warning--string name "pub-ora" is undefined
+--line 1172 of file export/Linux.bib
+Warning--string name "pub-ora:adr" is undefined
+--line 1173 of file export/Linux.bib
+Warning--string name "pub-acm" is undefined
+--line 1199 of file export/Linux.bib
+Warning--string name "pub-acm:adr" is undefined
+--line 1200 of file export/Linux.bib
+Warning--string name "pub-ieee" is undefined
+--line 1248 of file export/Linux.bib
+Warning--string name "pub-ieee:adr" is undefined
+--line 1249 of file export/Linux.bib
+Warning--string name "pub-ora" is undefined
+--line 1267 of file export/Linux.bib
+Warning--string name "pub-ora:adr" is undefined
+--line 1268 of file export/Linux.bib
+Warning--string name "pub-no-starch" is undefined
+--line 1293 of file export/Linux.bib
+Warning--string name "pub-no-starch:adr" is undefined
+--line 1294 of file export/Linux.bib
+Warning--empty journal in Abeni:2019:HSR
+Warning--empty journal in Alglave:2018:FSC
+Warning--empty journal in Borntrager:2020:SYC
+Warning--empty journal in Bagherzadeh:2018:ADL
+Warning--empty journal in Bai:2020:EDS
+Warning--empty journal in Carrillo-Mondejar:2020:CLB
+Warning--empty journal in Driscoll:2019:TTT
+Warning--empty journal in Frazelle:2019:OSF
+Warning--empty journal in Gomes:2018:ERL
+Warning--empty journal in Gebai:2018:SAK
+Warning--empty journal in Huber:2019:FCL
+Warning--empty journal in STTT-1207890004
+Warning--empty journal in Lamps:2018:TIE
+Warning--empty publisher in Pritchard:2006:LLC
+Warning--empty journal in Reshetova:2018:TLK
+Warning--empty journal in Reghenzani:2019:RTL
+Warning--empty publisher in Siever:2005:LND
+Warning--empty publisher in Smith:2007:LAD
+Warning--empty journal in Scordino:2019:RTE
+Warning--empty journal in Wilde:2018:MTV
+You've used 46 entries,
+            2543 wiz_defined-function locations,
+            838 strings with 14256 characters,
+and the built_in function-call counts, 16489 in all, are:
+= -- 1555
+> -- 814
+< -- 24
++ -- 266
+- -- 258
+* -- 1247
+:= -- 2732
+add.period$ -- 131
+call.type$ -- 46
+change.case$ -- 254
+chr.to.int$ -- 40
+cite$ -- 66
+duplicate$ -- 676
+empty$ -- 1266
+format.name$ -- 319
+if$ -- 3274
+int.to.chr$ -- 7
+int.to.str$ -- 0
+missing$ -- 21
+newline$ -- 216
+num.names$ -- 167
+pop$ -- 317
+preamble$ -- 1
+purify$ -- 326
+quote$ -- 0
+skip$ -- 509
+stack$ -- 0
+substring$ -- 797
+swap$ -- 46
+text.length$ -- 24
+text.prefix$ -- 23
+top$ -- 0
+type$ -- 302
+warning$ -- 20
+while$ -- 149
+width$ -- 51
+write$ -- 545
+(There were 93 warnings)

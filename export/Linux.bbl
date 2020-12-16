@@ -1,0 +1,272 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{{ACM}05b}
+
+\bibitem[ABB19]{Abeni:2019:HSR}
+Luca Abeni, Alessandro Biondi, and Enrico Bini.
+\newblock Hierarchical scheduling of real-time tasks over {Linux}-based virtual
+  machines.
+\newblock 149(??):234--249, March 2019.
+
+\bibitem[{ACM}93]{ACM:1993:PUS}
+{ACM}, editor.
+\newblock {\em Proceedings: User Services Conference {XXI}, the Pan Pacific
+  Hotel, San Diego, California, November 7--10, 1993: toward new horizons},
+  1993.
+
+\bibitem[{ACM}99]{ACM:1999:SPO}
+{ACM}, editor.
+\newblock {\em {SC}'99: Oregon Convention Center 777 {NE} Martin Luther King
+  Jr. Boulevard, Portland, Oregon, November 11--18, 1999}, and, 1999. and.
+
+\bibitem[{ACM}03a]{ACM:2003:SII}
+{ACM}, editor.
+\newblock {\em {SC2003}: Igniting Innovation. {Phoenix, AZ, November 15--21,
+  2003}}, and, 2003. and.
+
+\bibitem[{ACM}03b]{ACM:2003:SPA}
+{ACM}, editor.
+\newblock {\em {SOSP '03: proceedings of the 19th ACM Symposium on Operating
+  Systems Principles: the Sagamore, Bolton Landing, Lake George, New York, USA,
+  October 19--22, 2003}}, volume 37(5) of {\em Operating systems review},
+  December 2003.
+\newblock ACM order number 534030.
+
+\bibitem[{ACM}04]{ACM:2004:SHP}
+{ACM}, editor.
+\newblock {\em {SC 2004: High Performance Computing, Networking and Storage:
+  Bridging communities: Proceedings of the IEEE\slash ACM Supercomputing 2004
+  Conference, Pittsburgh, PA, November 6--12, 2004}}, and, 2004. and.
+
+\bibitem[{ACM}05a]{ACM:2005:PAI}
+{ACM}, editor.
+\newblock {\em {Proceedings of the 2005 ACM\slash IEEE conference on
+  Supercomputing 2005, Seattle, WA, November 12--18 2005}}, and, 2005. and.
+
+\bibitem[{ACM}05b]{ACM:2005:PFA}
+{ACM}, editor.
+\newblock {\em {Proceedings of the First ACM\slash USENIX International
+  Conference on Virtual Execution Environments: VEE '05: June 11--12, 2005,
+  Chicago, Illinois, USA}}, 2005.
+\newblock ACM order number 548059.
+
+\bibitem[{ACM}06]{ACM:2006:VPS}
+{ACM}, editor.
+\newblock {\em {VEE 2006: proceedings of the Second International Conference on
+  Virtual Execution Environments, June 14-16, 2006, Ottawa, Ontario, Canada}},
+  2006.
+
+\bibitem[AMM{\etalchar{+}}18]{Alglave:2018:FSC}
+Jade Alglave, Luc Maranget, Paul~E. McKenney, Andrea Parri, and Alan Stern.
+\newblock Frightening small children and disconcerting grown-ups: Concurrency
+  in the {Linux} kernel.
+\newblock 53(2):405--418, February 2018.
+
+\bibitem[Ano94a]{Anonymous:1994:ICS}
+Anonymous, editor.
+\newblock {\em 1994 International Computer Symposium Conference Proceedings},
+  Hsinchu, Taiwan, 1994. Nat. Chiao Tung Univ.
+\newblock Two volumes.
+
+\bibitem[Ano94b]{Anonymous:1994:CIC}
+Anonymous, editor.
+\newblock {\em {CMG} '94: 20th International conference for the management and
+  performance evaluation of enterprise computing systems --- December 1994,
+  Orlando, {FL}}, CMG --- CONFERENCE --- 1994//V2, Westmont, IL, USA, 1994. The
+  Computer Measurement Group, Inc.
+
+\bibitem[Ano94c]{Anonymous:1994:PCC}
+Anonymous, editor.
+\newblock {\em Petroleum computer conference: --- July 1994, Dallas, {TX}},
+  Papers --- Society of Petroleum Engineers of AIME 1994, 1994.
+
+\bibitem[Ano94d]{Anonymous:1994:PAC}
+Anonymous, editor.
+\newblock {\em Proceedings of the {AUUG94} Conference: Open systems. Looking
+  into the future: 6--9 September 1994, World Congress Centre, Melbourne,
+  Australia}, Kensington, NSW, Australia, 1994. AUUG Inc.
+
+\bibitem[Ano06]{Anonymous:2006:PGI}
+Anonymous, editor.
+\newblock {\em {Proceedings of Gelato ICE: Itanium Conference and Expo:
+  Spotlighting Linux on Itanium-based Platforms, October 1--4, 2006, Biopolis,
+  Singapore}}, ????, 2006. ????
+
+\bibitem[BBB{\etalchar{+}}20]{Borntrager:2020:SYC}
+C.~Borntr{\"a}ger, J.~D. Bradbury, R.~B{\"u}ndgen, F.~Busaba, L.~C. Heller, and
+  V.~Mihajlovski.
+\newblock Secure your cloud workloads with {IBM Secure Execution for Linux} on
+  {IBM z15} and {LinuxONE III}.
+\newblock 64(5/6):2:1--2:11, 2020.
+
+\bibitem[BKB{\etalchar{+}}18]{Bagherzadeh:2018:ADL}
+Mojtaba Bagherzadeh, Nafiseh Kahani, Cor-Paul Bezemer, Ahmed~E. Hassan, Juergen
+  Dingel, and James~R. Cordy.
+\newblock Analyzing a decade of {Linux} system calls.
+\newblock 23(3):1519--1551, June 2018.
+
+\bibitem[BLH20]{Bai:2020:EDS}
+Jia-Ju Bai, Julia Lawall, and Shi-Min Hu.
+\newblock Effective detection of sleep-in-atomic-context bugs in the {Linux}
+  kernel.
+\newblock 36(4):10:1--10:30, June 2020.
+
+\bibitem[CMMST20]{Carrillo-Mondejar:2020:CLB}
+J.~Carrillo-Mond{\'e}jar, J.~L. Mart{\'\i}nez, and G.~Suarez-Tangil.
+\newblock Characterizing {Linux}-based malware: Findings and recent trends.
+\newblock 110(??):267--281, September 2020.
+
+\bibitem[DM19]{Driscoll:2019:TTT}
+K.~Driscoll and J.~Mailland.
+\newblock From trash to treasure: Turn a {Minitel} terminal into a {Linux}
+  terminal or {Videotex} display --- [resources hands on].
+\newblock 56(3):16--17, March 2019.
+
+\bibitem[DW94]{Dongarra:1994:PSC}
+Jack Dongarra and Jerzy Wasniewski, editors.
+\newblock {\em Parallel scientific computing: First International Workshop,
+  {PARA} '94, Lyngby, Denmark, June 20--23, 1994: proceedings}, 1994.
+
+\bibitem[Fra19]{Frazelle:2019:OSF}
+Jesse Frazelle.
+\newblock Open source firmware.
+\newblock 62(10):34--38, October 2019.
+
+\bibitem[GBC{\etalchar{+}}18]{Gomes:2018:ERL}
+Jorge Gomes, Emanuele Bagnaschi, Isabel Campos, Mario David, Lu{\'{\i}}s Alves,
+  Jo{\~a}o Martins, Jo{\~a}o Pina, Alvaro L{\'o}pez-Garc{\'\i}a, and Pablo
+  Orviz.
+\newblock Enabling rootless {Linux Containers} in multi-user environments: the
+  {\tt udocker} tool.
+\newblock 232(??):84--97, November 2018.
+
+\bibitem[GD18]{Gebai:2018:SAK}
+Mohamad Gebai and Michel~R. Dagenais.
+\newblock Survey and analysis of kernel and userspace tracers on {Linux}:
+  Design, implementation, and overhead.
+\newblock 51(2):26:1--26:??, June 2018.
+
+\bibitem[HHAW19]{Huber:2019:FCL}
+Manuel Huber, Julian Horsch, Junaid Ali, and Sascha Wessel.
+\newblock Freeze and crypt: {Linux} kernel support for main memory encryption.
+\newblock 86(??):420--436, September 2019.
+
+\bibitem[IEE93]{IEEE:1993:NFT}
+IEEE, editor.
+\newblock {\em The new face of technical communication: people, processes,
+  products: International professional communication conference --- October
+  1993, Philadelphia, {PA}}, 1993.
+
+\bibitem[IEE04]{IEEE:2004:PIS}
+IEEE, editor.
+\newblock {\em {Proceedings: 37th International Symposium on Microarchitecture,
+  MICRO-37: 4--8 December 2004, Portland, Oregon}}, 2004.
+\newblock IEEE Computer Society Order Number P2126. ACM Order Number 520040.
+
+\bibitem[{IEE}06]{IEEE:2006:PIS}
+{IEEE}, editor.
+\newblock {\em {Proceedings of the 20th International Symposium on
+  High-Performance Computing in an Advanced Collaborative Environment
+  (HPCS'06), St. John's, Newfoundland, May 14--17, 2006}}, 2006.
+\newblock ACM product number E2582.
+
+\bibitem[KD96]{Kalpic:1996:IPI}
+Damir Kalpic and Vesna~Hljuz Dobric, editors.
+\newblock {\em {ITI} '96: Proceedings of the 18th International Conference on
+  Information Technology Interfaces, Pula, Croatia, June 18--21, 1996}, Zagreb,
+  Croatia, 1996. University of Zagreb, University Computing Centre.
+
+\bibitem[Kie98]{Kiesling:1998:LCR}
+Robert Kiesling, editor.
+\newblock {\em {Linux}, the complete reference}.
+\newblock and, and, sixth edition, 1998.
+
+\bibitem[KS19]{STTT-1207890004}
+Michalis Kokologiannakis and Konstantinos Sagonas.
+\newblock Stateless model checking of the {Linux} kernel's read-copy update
+  {(RCU)}.
+\newblock 21(3):287--306, June 2019.
+
+\bibitem[LBN{\etalchar{+}}18]{Lamps:2018:TIE}
+Jereme Lamps, Vignesh Babu, David~M. Nicol, Vladimir Adam, and Rakesh Kumar.
+\newblock Temporal integration of emulation and network simulators on {Linux}
+  multiprocessors.
+\newblock 28(1):1:1--1:??, January 2018.
+
+\bibitem[MS05]{Meadows:2005:CHE}
+Catherine Meadows and Paul Syverson, editors.
+\newblock {\em {CCS '05: proceedings of the 12th ACM Conference on Computer and
+  Communications Security: November 7--11, 2005, Alexandria, Virginia, USA}},
+  2005.
+\newblock ACM order number 459050.
+
+\bibitem[P{\etalchar{+}}06]{Pritchard:2006:LLC}
+Steven Pritchard et~al., editors.
+\newblock {\em {LPI Linux} certification in a nutshell}.
+\newblock Second edition, 2006.
+
+\bibitem[Pop94]{Popov:1994:SAE}
+Angel Popov, editor.
+\newblock {\em Systems for automation of engineering and research: 8th
+  International conference --- October 1994, Varna, Bulgaria}, ????, 1994. SAER
+  Forum Group.
+
+\bibitem[RLPA18]{Reshetova:2018:TLK}
+Elena Reshetova, Hans Liljestrand, Andrew Paverd, and N.~Asokan.
+\newblock Toward {Linux} kernel memory safety.
+\newblock 48(12):2237--2256, December 2018.
+
+\bibitem[RMF19]{Reghenzani:2019:RTL}
+Federico Reghenzani, Giuseppe Massari, and William Fornaciari.
+\newblock The real-time {Linux} kernel: a survey on {PREEMPT\_RT}.
+\newblock 52(1):18:1--18:??, February 2019.
+
+\bibitem[S{\etalchar{+}}05]{Siever:2005:LND}
+Ellen Siever et~al., editors.
+\newblock {\em {Linux} in a nutshell: a desktop quick reference}.
+\newblock In a nutshell. Fifth edition, 2005.
+
+\bibitem[S{\etalchar{+}}07]{Smith:2007:LAD}
+Bob Smith et~al., editors.
+\newblock {\em {Linux} appliance design: a hands-on guide to building {Linux}
+  appliances}.
+\newblock 2007.
+
+\bibitem[SAL19]{Scordino:2019:RTE}
+Claudio Scordino, Luca Abeni, and Juri Lelli.
+\newblock Real-time and energy efficiency in {Linux}: theory and practice.
+\newblock 18(4):18--30, January 2019.
+
+\bibitem[SS05]{Shih:2005:ICA}
+Timothy~K. Shih and Yoshitaka Shibata, editors.
+\newblock {\em {19th International Conference on Advanced Information
+  Networking and Applications: proceedings, AINA 2005, 28--30 March, 2005,
+  Taipei, Taiwan}}, 2005.
+\newblock IEEE Computer Society Order Number P2249.
+
+\bibitem[{USE}96a]{USENIX:1996:SAC}
+{USENIX}, editor.
+\newblock {\em 10th Systems Administration Conference ({LISA}'96), September
+  29--October 4, 1996. Chicago, {IL}}, 1996.
+
+\bibitem[{USE}96b]{USENIX:1996:PUA}
+{USENIX Association}, editor.
+\newblock {\em Proceedings of the {USENIX} 1996 annual technical conference:
+  January 22--26, 1996, San Diego, California, {USA}}, USENIX Conference
+  Proceedings 1996, 1996.
+
+\bibitem[{USE}00]{USENIX:2000:PAL}
+{USENIX}, editor.
+\newblock {\em Proceedings of the 4th Annual Linux Showcase and Conference,
+  Atlanta, October 10--14, 2000, Atlanta, Georgia, {USA}}, 2000.
+
+\bibitem[{USE}01]{USENIX:2001:PAL}
+{USENIX}, editor.
+\newblock {\em Proceedings of the 5th Annual Linux Showcase and Conference,
+  November 5--10, 2001, Oakland, {CA}}, 2001.
+
+\bibitem[WG18]{Wilde:2018:MTV}
+Evan Wilde and Daniel German.
+\newblock {Merge-Tree}: Visualizing the integration of commits into {Linux}.
+\newblock 30(2):e1936:1--e1936:??, February 2018.
+
+\end{thebibliography}

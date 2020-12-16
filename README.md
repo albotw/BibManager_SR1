@@ -46,6 +46,12 @@ Le script pour les statistiques  va avoir les commandes et fonctionnalités suiv
 *type des références: ./stat.sh base1 -t -g
 *nombre de références par auteur: ./stat.sh base1 -r t
 
+./stat.sh -t        => retourne toutes les valeurs uniques du param
+./stat.sh -t -n   => compte toutes les occurences de chaque val du param
+./stat.sh -t -n -g=> comme avant + affichage en graphique
+./stat.sh -t -n -g -r => comme avant mais sur une plage temporelle précise.
+./stat.sh -a        => retourne tous les auteurs uniques.
+
 Le script de statistiques va principalement reposer sur awk mais peut aussi utiliser grep, head, tail, tr et toutes les commandes qui concernent du texte.
 Le script de gestion des bases va aussi utiliser des commandes liées au texte.
 On peut donc unifier les commandes de modification de fichiers via un fichier shell contenant ces fonctions.
