@@ -37,6 +37,6 @@
                  satisfies this law.",
   acknowledgement = ack-nhfb,
   fjournal =     "ACM SIGPLAN Notices",
-  journal-URL = "http://portal.acm.org/browse_dl.cfm?idx=J706",
-  remark =       "ASPLOS ’18 proceedings.",
+  journal-URL =  "http://portal.acm.org/browse_dl.cfm?idx=J706",
+  remark =       "ASPLOS '18 proceedings.",
 }

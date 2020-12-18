@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.12.16)  17 DEC 2020 01:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.12.16)  17 DEC 2020 01:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**export//Linux
-(./export//Linux.tex
+**export//ref
+(./export//ref.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -346,8 +346,8 @@ Now handling font encoding U ...
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
-) (export//Linux.aux)
-\openout1 = `Linux.aux'.
+) (export//ref.aux)
+\openout1 = `ref.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
@@ -366,51 +366,28 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 5.
 
-(export//Linux.bbl
-Overfull \hbox (11.6258pt too wide) in paragraph at lines 5--2
-[] \OT1/cmr/m/n/10 [AMM$[]$18] [BKB$[]$18] [GD18] [GBC$[]$18] [LBN$[]$18] [RLPA
-18] [WG18] [ABB19]
- []
+(export//ref.bbl [1
 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+[2
 
-Overfull \hbox (18.61195pt too wide) in paragraph at lines 5--2
-\OT1/cmr/m/n/10 [DM19] [Fra19] [HHAW19] [RMF19] [SAL19] [KS19] [BLH20] [BBB$[]$
-20] [CMMST20]
- []
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
-
-]
-Underfull \hbox (badness 6526) in paragraph at lines 102--106
-[]\OT1/cmr/m/n/10 Mojtaba Bagherzadeh, Nafiseh Ka-hani, Cor-Paul Beze-mer,
- []
-
-[3] [4]
-Underfull \hbox (badness 4595) in paragraph at lines 247--250
-[]\OT1/cmr/m/n/10 USENIX, ed-i-tor.  \OT1/cmr/m/it/10 10th Sys-tems Ad-min-is-t
-ra-tion Con-fer-ence
- []
-
-) [5] (export//Linux.aux) ) 
+] (export//ref.aux) ) 
 Here is how much of TeX's memory you used:
- 682 strings out of 494923
- 7034 string characters out of 6180741
- 58021 words of memory out of 5000000
- 4057 multiletter control sequences out of 15000+600000
- 4760 words of font info for 18 fonts, out of 8000000 for 9000
+ 626 strings out of 494923
+ 6130 string characters out of 6180741
+ 53021 words of memory out of 5000000
+ 4004 multiletter control sequences out of 15000+600000
+ 4246 words of font info for 16 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 26i,4n,24p,156b,201s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on export//Linux.pdf (5 pages, 84369 bytes).
+ 26i,4n,24p,142b,113s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+
+Output written on export//ref.pdf (2 pages, 36014 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 23 PDF objects out of 1000 (max. 8388607)
+ 15 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

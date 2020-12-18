@@ -15,7 +15,9 @@ function bib2txt()
 
 function pdf2bib()
 {
-    echo "bib2txt"
+    pdftotext -layout $baseFile.pdf
+    mv $baseFile.txt $baseFile
+    txt2bib
 }
 
 function bib2pdf()
@@ -42,16 +44,6 @@ function bib2pdf()
     bibtex $destination/$baseName
     pdflatex -output-directory=$destination $destination/$baseName
     pdflatex -output-directory=$destination $destination/$baseName
-}
-
-function xml2bib()
-{
-echo "bib2txt"
-}
-
-function bib2xml()
-{
-echo "bib2txt"
 }
 
 while getopts hi:e:f:d: OPT

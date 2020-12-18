@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 if [ ! -f cache ]
 then
@@ -16,8 +16,6 @@ function usage()
     echo "-b => action sur les bases"
     echo "-r => action sur les références"
     echo "./manage.sh [-b| -r| -a| -c| -l| -d| -u| -n]"
-    echo "-a <base|reference> => ajouter base/ref"
-    echo "-d <nom de la référence> => supprimer une référence contenue dans la base"
 }
 
 function createBase()
@@ -35,7 +33,7 @@ function addReference()
         refID=`grep -E "@" $reference | cut -d{ -f2 | cut -d, -f1`
         testDoublon=`grep -E "$refID" cache`
 
-        if [ $testDoublon = '' ]
+        if [ -z $testDoublon ]
         then
             size=`wc -l $reference | tr -d "[:alpha:]" | tr -d "[:space:]"`
             echo "ref-$refID-$size-$base" >> cache
@@ -47,24 +45,24 @@ function addReference()
         else 
             echo "Erreur, la référence existe déjà."
         fi
-    else
-        refID=`echo $reference | grep -E "@" | cut -d{ -f2 | cut -d, -f1`
+    elif [ $reference = 'text' ]
+    then
+        read -d "===" -p "Entrez la référence(\"===\" une fois fini):" refText
+        refID=`echo $refText | grep -E "@" | cut -d{ -f2 | cut -d, -f1`
         testDoublon=`grep -E "$refID" cache`
 
         if [ $testDoublon = '' ]
         then
-            size=`wc -l $reference | tr -d "[:alpha:]" | tr -d "[:space:]"`
+            size=`wc -l $refText | tr -d "[:alpha:]" | tr -d "[:space:]"`
             echo "ref-$refID-$size-$base" >> cache
             echo "référence enregistrée dans le cache"
 
-            cat $reference >> bases/$base
+            cat $refText >> bases/$base
             echo '\n' >> bases/$base
             echo "a écrit le contenu de $reference dans $base"
         else 
             echo "Erreur, la référence existe déjà."
         fi
-        echo $reference >> $base
-        echo "a ajouté la référence dans $base"
     fi
     
 }
@@ -112,11 +110,11 @@ function listReferences()
 
 function findReference()
 {
-    if [ -f $base ]
+    if [ -f bases/$base ]
     then 
         refToFind=$1
-        echo "start"
-        grep -E "$refToFind" $base
+        completeRef=`grep -Poz "(?s)$refToFind(.|\n)+?\}\n" bases/$base`
+        echo "$completeRef"
     fi
 }
 
@@ -146,7 +144,7 @@ function clean()
 }
 
 
-while getopts hbra:c:ld:un OPT
+while getopts hbra:c:ld:unf: OPT
 do
     case $OPT in
         h)
@@ -184,12 +182,18 @@ do
             if [ $mod = "BASE" ]
             then 
                 listBases
-            elif [ $mod = 'REF' ]
+            elif [ $mod = "REF" ]
             then
                 listReferences
             else 
                 echo "Erreur, mode de gestion non sélectionné"
                 exit 1
+            fi
+            ;;
+        f)
+            if [ $mod = "REF" ]
+            then
+                findReference $OPTARG
             fi
             ;;
         n)

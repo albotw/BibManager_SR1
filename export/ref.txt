@@ -1,4 +1,4 @@
-@Article{TEST:TEST:TEST,
+@Article{Alglave:2018:FSC,
   author =       "Jade Alglave and Luc Maranget and Paul E. McKenney and
                  Andrea Parri and Alan Stern",
   title =        "Frightening Small Children and Disconcerting
@@ -37,6 +37,6 @@
                  satisfies this law.",
   acknowledgement = ack-nhfb,
   fjournal =     "ACM SIGPLAN Notices",
-  journal-URL = "http://portal.acm.org/browse_dl.cfm?idx=J706",
-  remark =       "ASPLOS ’18 proceedings.",
+  journal-URL =  "http://portal.acm.org/browse_dl.cfm?idx=J706",
+  remark =       "ASPLOS '18 proceedings.",
 }

@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: export//ref.aux
+The style file: alpha.bst
+Database file #1: export//ref.bib
+Warning--string name "j-sigplan" is undefined
+--line 6 of file export//ref.bib
+Warning--empty journal in Alglave:2018:FSC
+You've used 1 entry,
+            2543 wiz_defined-function locations,
+            564 strings with 4658 characters,
+and the built_in function-call counts, 542 in all, are:
+= -- 49
+> -- 35
+< -- 0
++ -- 13
+- -- 13
+* -- 52
+:= -- 100
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 9
+chr.to.int$ -- 1
+cite$ -- 2
+duplicate$ -- 14
+empty$ -- 31
+format.name$ -- 13
+if$ -- 99
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 1
+newline$ -- 9
+num.names$ -- 3
+pop$ -- 8
+preamble$ -- 1
+purify$ -- 10
+quote$ -- 0
+skip$ -- 11
+stack$ -- 0
+substring$ -- 32
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 8
+warning$ -- 1
+while$ -- 5
+width$ -- 2
+write$ -- 15
+(There were 2 warnings)

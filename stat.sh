@@ -38,26 +38,89 @@ fi
 
 if [ $searchType = 'TYPE' ]
 then
-    if [ -z $timeRange ]
-    then
-        if [ $counter = 'OFF' ]
+    ls bases | while read base
+    do 
+        echo "pour la base $base"
+
+        if [ -z $timeRange ] && [ $counter = 'OFF' ]
         then
-            ls bases | while read base
+            grep -Eo "@.*\{" bases/$base | cut -d@ -f2 | cut -d{ -f1 | sort -u
+
+        elif [ -z $timeRange ] && [ $counter = 'ON' ]
+        then
+            grep -Eo "@.*\{" bases/$base | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
             do
-                echo "\t pour la base $base :"
-                grep -Eo "@.*\{" bases/$base | cut -d@ -f2 | cut -d{ -f1 | sort -u
+                echo "$typeRef:" 
+                grep -E "@$typeRef" bases/$base | wc -l
             done
-        elif [ $counter = 'ON' ]
+        
+        elif [ ! -z $timeRange ]
         then
-            ls bases | while read base
-            do
-                echo "Pour la base $base :"
-                grep -Eo "@.*\{" bases/$base | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
+            timeBegin=`echo $timeRange | cut -d- -f1`
+            timeEnd=`echo $timeRange | cut -d- -f2`
+
+            if [ $counter = "OFF" ]
+            then
+                for ((time=$timeBegin; time<=$timeEnd;time++))
                 do
-                    echo "$typeRef:" 
-                    grep -E "@$typeRef" bases/$base | wc -l
+                    grep -Paoz "(?s)@.*?:$time:(.|\n)+?\}\n" bases/$base | grep -Ea "@.*\{" | cut -d@ -f2 | cut -d{ -f1 | sort -u
                 done
-            done
+
+            elif [ $counter = "ON" ]
+            then
+                for ((time=$timeBegin; time<=$timeEnd;time++))
+                do
+                    grep -Paoz "(?s)@.*?:$time:(.|\n)+?\}\n" bases/$base | grep -Ea "@.*\{" | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
+                    do
+                        echo "$typeRef - $time :"
+                        grep -E "@$typeRef.*?:$time:" bases/$base | wc -l
+                    done
+                done
+            fi
         fi
-    fi
+    done
+fi
+
+if [ $searchType = 'AUTHOR' ]
+then
+    ls bases | while read base
+    do 
+        echo "pour la base $base"
+
+        if [ -z $timeRange ] && [ $counter = 'OFF' ]
+        then
+            grep -Eo "author(.|\n)*?,\n" bases/$base //
+        elif [ -z $timeRange ] && [ $counter = 'ON' ]
+        then
+            grep -Eo "@.*\{" bases/$base | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
+            do
+                echo "$typeRef:" 
+                grep -E "@$typeRef" bases/$base | wc -l
+            done
+        
+        elif [ ! -z $timeRange ]
+        then
+            timeBegin=`echo $timeRange | cut -d- -f1`
+            timeEnd=`echo $timeRange | cut -d- -f2`
+
+            if [ $counter = "OFF" ]
+            then
+                for ((time=$timeBegin; time<=$timeEnd;time++))
+                do
+                    grep -Paoz "(?s)@.*?:$time:(.|\n)+?\}\n" bases/$base | grep -Ea "@.*\{" | cut -d@ -f2 | cut -d{ -f1 | sort -u
+                done
+                
+            elif [ $counter = "ON" ]
+            then
+                for ((time=$timeBegin; time<=$timeEnd;time++))
+                do
+                    grep -Paoz "(?s)@.*?:$time:(.|\n)+?\}\n" bases/$base | grep -Ea "@.*\{" | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
+                    do
+                        echo "$typeRef - $time :"
+                        grep -E "@$typeRef.*?:$time:" bases/$base | wc -l
+                    done
+                done
+            fi
+        fi
+    done
 fi
