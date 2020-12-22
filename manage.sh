@@ -45,26 +45,7 @@ function addReference()
         else 
             echo "Erreur, la référence existe déjà."
         fi
-    elif [ $reference = 'text' ]
-    then
-        read -d "===" -p "Entrez la référence(\"===\" une fois fini):" refText
-        refID=`echo $refText | grep -E "@" | cut -d{ -f2 | cut -d, -f1`
-        testDoublon=`grep -E "$refID" cache`
-
-        if [ $testDoublon = '' ]
-        then
-            size=`wc -l $refText | tr -d "[:alpha:]" | tr -d "[:space:]"`
-            echo "ref-$refID-$size-$base" >> cache
-            echo "référence enregistrée dans le cache"
-
-            cat $refText >> bases/$base
-            echo '\n' >> bases/$base
-            echo "a écrit le contenu de $reference dans $base"
-        else 
-            echo "Erreur, la référence existe déjà."
-        fi
     fi
-    
 }
 
 function removeReference()
@@ -134,8 +115,8 @@ function clean()
 
             if [ -z "$testDoublon" ]
             then  
-                completeRef=`grep -Poz "(?s)$refID(.|\n)+?\}\n" bases/$base`
-                size=`echo $completeRef | wc -l`
+                completeRef=`grep -Paoz "$refID(.|\n)+?\}\n" bases/$base`
+                size=`echo "$completeRef" | wc -l`
                 echo "ref-$refID-$size-$base" >> cache
                 echo "référence enregistrée dans le cache"
             fi

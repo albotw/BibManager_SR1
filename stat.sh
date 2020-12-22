@@ -7,7 +7,7 @@
 
 counter='OFF'
 graph='OFF'
-base=bases/Linux.bib
+base=bases/HP.bib
 
 while getopts tangr:b: OPT
 do
@@ -33,6 +33,74 @@ do
     esac
 done
 
+function genGraphFile()
+{
+    if [ $graph = "ON" ]
+    then
+        if [ $searchType = "TYPE" ]
+        then
+            if [ -z $timeRange]
+            then
+                tmpFile=types_`basename $base | cut -d. -f1`.dat
+            else
+                tmpFile=types_`basename $base | cut -d. -f1`_$timeRange.dat
+            fi
+        elif [ $searchType = "AUTHOR" ]
+        then
+            if [ -z $timeRange ]
+            then
+                tmpFile=author_`basename $base | cut -d. -f1`.dat
+            else
+                tmpFile=author_`basename $base | cut -d. -f1`_$timeRange.dat
+            fi
+        fi
+
+        touch gnuplot/$tmpFile
+        echo > gnuplot/$tmpFile
+    fi
+}
+
+function addDataToGraphFile()
+{
+    field=${1}
+    count=$2
+    if [ $graph = "ON" ]
+    then
+        echo \""${field}"\" $count >> gnuplot/$tmpFile
+    fi
+}
+
+function showGraph()
+{
+    if [ $graph = "ON" ]
+    then
+        if [ $searchType = 'TYPE' ]
+        then
+            if [ -z $timeRange]
+            then
+                gnuplotFile=gnuplot/histo_types_`basename $base | cut -d. -f1`.gnuplot
+            else
+                gnuplotFile=gnuplot/histo_types_`basename $base | cut -d. -f1`_$timeRange.gnuplot
+            fi
+            max=`grep -Eo "@" $base | wc -l`
+            cp gnuplot/histo_type_base.gnuplot $gnuplotFile
+        elif [ $searchType = "AUTHOR" ]
+        then
+            if [ -z $timeRange ]
+            then
+                 gnuplotFile=gnuplot/histo_author_`basename $base | cut -d. -f1`.gnuplot
+            else
+                gnuplotFile=gnuplot/histo_author_`basename $base | cut -d. -f1`_$timeRange.gnuplot
+            fi
+            max=`grep -E "author = " $base | wc -l`
+            cp gnuplot/histo_author_base.gnuplot $gnuplotFile
+        fi
+
+        sed -i "9c\set yrange [0:$max]" $gnuplotFile
+        sed -i "11c\plot 'gnuplot/$tmpFile' using 2:xtic(1) title 'Nombre de références'" $gnuplotFile
+        gnuplot -persist $gnuplotFile
+    fi
+}
 
 if [ -z $searchType ]
 then
@@ -50,124 +118,95 @@ then
 
     elif [ -z $timeRange ] && [ $counter = 'ON' ]
     then
-        if [ $graph = "ON" ]
-        then
-            tmpFile=types_`basename $base | cut -d. -f1`.dat
-            touch gnuplot/$tmpFile
-            echo > gnuplot/$tmpFile
-        fi
+        genGraphFile
 
         grep -Eo "@.*\{" $base | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
         do
-            echo "$typeRef:" 
-            grep -E "@$typeRef" $base | wc -l
-            if [ $graph = "ON" ]
-            then
-                echo $typeRef `grep -E "@$typeRef" $base | wc -l` >> gnuplot/$tmpFile  
-            fi
+            nbRef=`grep -E "@$typeRef" $base | wc -l`
+            echo "${typeRef} : $nbRef" 
+            addDataToGraphFile "$typeRef" $nbRef
         done
-        if [ $graph = "ON" ]
-        then
-            nbRef=`grep -Eo "@" $base | wc -l`
-            echo "nbRef: $nbRef"
-            cp gnuplot/histo_base.gnuplot gnuplot/histo_types_`basename $base | cut -d. -f1`.gnuplot
-            sed -i "8c\set yrange [0:$nbRef]" gnuplot/histo_types_`basename $base | cut -d. -f1`.gnuplot
-            sed -i "10c\plot 'gnuplot/$tmpFile' using 2:xtic(1) title 'Nombre de références'" gnuplot/histo_types_`basename $base | cut -d. -f1`.gnuplot
-            gnuplot -persist gnuplot/histo_types_`basename $base | cut -d. -f1`.gnuplot
-        fi
+        showGraph
 
     elif [ ! -z $timeRange ]
     then
         timeBegin=`echo $timeRange | cut -d- -f1`
         timeEnd=`echo $timeRange | cut -d- -f2`
+        genGraphFile
 
-        if [ $counter = "OFF" ]
-        then
-            for ((time=$timeBegin; time<=$timeEnd;time++))
+        grep -Paoz "(?s)@.*?(.|\n)+?\}\n" $base | grep -Ea "@.*\{" | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
+        do
+            nbRef=0
+            for ((time=$timeBegin; time<=$timeEnd; time++))
             do
-                grep -Paoz "(?s)@.*?:$time:(.|\n)+?\}\n" $base | grep -Ea "@.*\{" | cut -d@ -f2 | cut -d{ -f1 | sort -u
+                #instances=`grep -E "@$typeRef.*?:$time:" $base | wc -l`
+                instances=`awk -v type="$typeRef" -v year="$time" '
+                BEGIN{n=0; RS="@"; FS="\n";}
+                $1 ~ type && $4 ~ year {n++;}
+                END{print n;}' $base`
+                let "nbRef=nbRef+instances"
             done
-
-        elif [ $counter = "ON" ]
-        then
-            if [ $graph = 'ON' ]
+            if [ $counter = "ON" ]
             then
-                tmpFile=types_`basename $base | cut -d. -f1`_$timeRange.dat
-                touch gnuplot/$tmpFile
-                echo > gnuplot/$tmpFile
+                echo "$typeRef : $nbRef"
+                addDataToGraphFile $typeRef $nbRef
+            elif [ $counter = "OFF" ]
+            then
+                echo "$typeRef"
             fi
+        done
 
-            grep -Paoz "(?s)@.*?(.|\n)+?\}\n" $base | grep -Ea "@.*\{" | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
-            do
-                counter=0
-                for ((time=$timeBegin; time<=$timeEnd; time++))
-                do
-                    instances=`grep -E "@$typeRef.*?:$time:" $base | wc -l`
-                    let "counter=counter+instances"
-                done
-                echo "$typeRef : $counter"
-                if [ $graph = "ON" ]
-                then
-                    echo "$typeRef $counter" >> gnuplot/$tmpFile
-                fi
-            done
-
-            if [ $graph = 'ON' ]
-            then
-                nbRef=`grep -Eo "@" $base | wc -l`
-                cp gnuplot/histo_base.gnuplot gnuplot/histo_types_`basename $base | cut -d. -f1`_$timeRange.gnuplot
-                sed -i "8c\set yrange [0:$nbRef]" gnuplot/histo_types_`basename $base | cut -d. -f1`_$timeRange.gnuplot
-                sed -i "10c\plot 'gnuplot/$tmpFile' using 2:xtic(1) title 'Nombre de références'" gnuplot/histo_types_`basename $base | cut -d. -f1`_$timeRange.gnuplot
-                gnuplot -persist gnuplot/histo_types_`basename $base | cut -d. -f1`_$timeRange.gnuplot      
-            fi   
-        fi
+        showGraph  
     fi
-fi
-
-if [ $searchType = 'AUTHOR' ]
+elif [ $searchType = 'AUTHOR' ]
 then
-    ls bases | while read base
-    do 
-        echo "pour la base $base"
+    echo "pour la base $base"
 
-        if [ -z $timeRange ] && [ $counter = 'OFF' ]
-        then
-            grep -Eo "author(.|\n)*?,\n" bases/$base //
-        elif [ -z $timeRange ] && [ $counter = 'ON' ]
-        then
-            grep -Eo "@.*\{" bases/$base | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
-            do
-                echo "$typeRef:" 
-                grep -E "@$typeRef" bases/$base | wc -l
-                if [ $graph = "ON" ]
-                then
-                    echo $typeRef `grep -E "@$typeRef" bases/$base | wc -l` >> tmp.dat
-                fi
-            done
-        
-        elif [ ! -z $timeRange ]
-        then
-            timeBegin=`echo $timeRange | cut -d- -f1`
-            timeEnd=`echo $timeRange | cut -d- -f2`
-
-            if [ $counter = "OFF" ]
+    if [ -z $timeRange ] && [ $counter = 'OFF' ]
+    then
+        grep -Paoz "author = (.|\n)+?,\n" $base | cut -d= -f2 | tr -s " " | tr -d "\"," | sort -u
+    elif [ -z $timeRange ] && [ $counter = 'ON' ]
+    then
+        genGraphFile
+        grep -Poz "author = (.|\n)+?,\n" $base | cut -d= -f2 | tr -s " " | tr -d "\"," | sort -u | while read author
+        do
+            if [ ! -z "$author" ]
             then
-                for ((time=$timeBegin; time<=$timeEnd;time++))
-                do
-                    grep -Paoz "(?s)@.*?:$time:(.|\n)+?\}\n" bases/$base | grep -Ea "@.*\{" | cut -d@ -f2 | cut -d{ -f1 | sort -u
-                done
-                
-            elif [ $counter = "ON" ]
-            then
-                for ((time=$timeBegin; time<=$timeEnd;time++))
-                do
-                    grep -Paoz "(?s)@.*?:$time:(.|\n)+?\}\n" bases/$base | grep -Ea "@.*\{" | cut -d@ -f2 | cut -d{ -f1 | sort -u | while read typeRef
-                    do
-                        echo "$typeRef - $time :"
-                        grep -E "@$typeRef.*?:$time:" bases/$base | wc -l
-                    done
-                done
+                nbRef=`grep -E "$author" $base | wc -l`
+                echo "auteur(s): ${author} $nbRef" 
+                addDataToGraphFile "${author}" $nbRef
             fi
-        fi
-    done
+        done
+        showGraph
+    elif [ ! -z $timeRange ]
+    then
+        timeBegin=`echo $timeRange | cut -d- -f1`
+        timeEnd=`echo $timeRange | cut -d- -f2`
+
+        genGraphFile
+        grep -Paoz "(?s)author = (.|\n)+?,\n" $base | cut -d= -f2 | tr -s " " | tr -d "\"," | sort -u | while read author
+        do
+            if [ ! -z "$author" ]
+            then
+                nbRef=0
+                for ((time=$timeBegin;time<=$timeEnd;time++))
+                do
+                    instances=`awk -v author="$author" -v year="$time" '
+                    BEGIN{n=0; RS="@"; FS="\n";} 
+                    $2 ~ author && $4 ~ year { n++;}
+                    END{print n;}' $base`
+                    let "nbRef=nbRef+$instances"
+                done
+                if [ $counter = "ON" ] && [ $nbRef -gt 0 ]
+                then
+                    echo "$author : $nbRef"
+                    addDataToGraphFile "${author}" $nbRef
+                elif [ $counter = "OFF" ] && [ $nbRef -gt 0 ]
+                then
+                    echo $author
+                fi
+            fi
+        done
+        showGraph
+    fi
 fi
