@@ -1,7 +1,0 @@
-book=$(grep -c ^[@][B][O][O][K][{] Linux.bib)
-article=$(grep -c ^[@][A][R][T][I][C][L][E][{] Linux.bib)
-proceedings=$(grep -c ^[@][P][R][O][C][E][E][D][I][N][G][S][{] Linux.bib)
-booklet=$(grep -c ^[@][B][O][O][K][L][E][T][{] Linux.bib)
-
-echo "\n TEST \nbook "$book" \narticle "$article" \nproceedings "$proceedings" \nbooklet "$booklet" "
-(exec ./stat.sh)

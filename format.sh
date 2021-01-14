@@ -49,10 +49,6 @@ function bib2pdf()
 while getopts hi:e:f:d: OPT
 do
     case $OPT in
-        h)
-            usage
-            exit 0
-            ;;
         i)
             baseFile=$OPTARG
             action='IMPORT'
