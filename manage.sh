@@ -1,12 +1,6 @@
 #!/bin/bash
 
-if [ ! -f cache ]
-then
-    echo "cache inexistant, reconstruction"
-    touch cache
-    echo "Linux.bib" >> cache
-    echo "BASE" >> cache
-fi
+
 
 base=`sed -n '1p' cache`
 mod=`sed -n '2p' cache`
